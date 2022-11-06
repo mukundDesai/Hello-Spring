@@ -6,10 +6,10 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 public class Main {
 
     public static void main(String[] args) {
-	// write your code here
-        ApplicationContext context = new ClassPathXmlApplicationContext("Beans.xml");
+       ApplicationContext context = new ClassPathXmlApplicationContext("Beans.xml");
         HelloWorld obj = (HelloWorld) context.getBean("helloWorld");
-        obj.getMessage();
-
+        obj.message();
+//        CustomMessage obj = (CustomMessage) context.getBean("custom");
+//        System.out.println(obj);
     }
 }

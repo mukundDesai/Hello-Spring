@@ -1,13 +1,24 @@
 package com.demo;
 
-public class HelloWorld {
-    private String message;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
-    public void getMessage() {
-        System.out.println("Your message : " + message);
+@Component
+public class HelloWorld implements Say {
+
+    @Autowired
+    private CustomMessage customMessage;
+
+    public CustomMessage getCustomMessage() {
+        return customMessage;
     }
 
-    public void setMessage(String message) {
-        this.message = message;
+    public void setCustomMessage(CustomMessage customMessage) {
+        this.customMessage = customMessage;
+    }
+
+    @Override
+    public void message() {
+        System.out.println("Hey, I'm HelloWorld!" + customMessage);
     }
 }
